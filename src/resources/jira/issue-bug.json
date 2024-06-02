@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "project":
+    {
+      "key":"APD"
+    },
+    "summary": "BUG ISSUE CREATE",
+    "description": "Creating BUG issue for the create issue request",
+    "issuetype":{
+      "name":"Bug"
+    }
+  }
+}

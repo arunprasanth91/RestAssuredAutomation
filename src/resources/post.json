@@ -1,0 +1,16 @@
+{
+  "location": {
+    "lat": -38.123123123,
+    "lng": 33.42731232362
+  },
+  "accuracy": 50,
+  "name": "Mikkies house",
+  "phone_number": "(+91) 983 893 3937",
+  "address": "29, side layout, selvapuram 09",
+  "types": [
+    "shoe park",
+    "shop"
+  ],
+  "website": "http://mikkis.com",
+  "language": "English-IN"
+}
