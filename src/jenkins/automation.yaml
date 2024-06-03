@@ -1,0 +1,9 @@
+Automation:
+  display_name: restAssured_Automation
+  repositories:
+    ^RestAssuredAutomation$:
+      branches:
+        ^main$:
+          Regression_Batch1:
+            jobType: pipeline
+            filename: Jenkins/run_automated_test.Jenkinsfile
