@@ -1,0 +1,171 @@
+1. REST Assured 
+java library provides DSL for testing RESTful APIs
+
+2. REST
+Representation state Transfer is an architecture that uses standard HTTP protocol methods (GET, POST, PUT, DELETE) for communication
+and identify resources by URIs. 
+
+Library used in RestAssured
+io.rest-assured
+
+3. JSON 
+JavaScript object notation lightweight format for data interchange that is both human readable and easily parsed by machines.
+uses key value pair 
+
+4. Base URI/URL and Base Path 
+Base URI/URL - is the starting URL for all subsequent HTTP requests. Based path represents specific endpoints. 
+
+5. Different parameters 
+Query parameters - https://api.github.com/user/repos?sort=created&direction=desc
+Path Parameters - https://api.github.com/users/:username/repos
+formParam() method is used to send multiple form parameters as a key-value pair/Json Object at once to the HTTP request.
+
+given()
+    .baseUri("https://facebook.com")
+    .basePath("/api")
+    .formParam("username", "john")
+    .formParam("password", "!@#")
+.when()
+    .post("/login")
+.then()
+    .statusCode(200)
+
+Multipart params - to upload files to api
+contentyType.multipart/form-data; 
+given()
+    .multiPart(new File("/path/to/file.txt"))
+.when()
+    .post("/upload");
+
+6. Different HTTP status codes
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+
+7. Statelessness vs Statefulness
+Statelessness means the server does not maintain a client state between requests.
+RESTful APIs are designed to be stateless, allowing for better scalability, reliability, and simplicity.
+Statefulness involves the server keeping track of the client’s state across requests.
+
+8. How to send a request using rest assured
+RestAssured.given().baseURI("BASEURI").headers("ContentType,"Application.JSON")
+.when().get("resource").then().statusCode(200);
+
+9. Log response
+RestAssured.given().baseURI("BASEURI").headers("ContentType,"Application.JSON").log(.all().when().get("resource").then().log().ifError().statusCode(200);
+
+10. Mask header info
+given().config(config().logConfig(logConfig().blacklistHeader("apikey"))). ..
+Masking multiple headers
+Set<String> headers= new HashSet();
+	headers.add("x-api-key");
+	headers.add("secreat key");
+ RestAssured.given().config(config().logConfig(logConfig()
+ .blacklistHeaders(headers)));
+
+11. Extract response
+Respose res = RestAssured.given().baseURI("BASEURI").headers("ContentType,"Application.JSON").log(.all().when().get("resource").then().log().ifError().statusCode(200).extract().response();
+
+System.out.print(res.path("users[0].name"));
+(or)
+JsonPath jsonPath = new JsonPath(res.asString();
+jsonPath.getString("users[0].name");
+
+12. Validate response time
+RestAssured.given().baseUri("http://localhost:4001").contentType(ContentType.JSON).log().all()
+.when().get("/users").then().time(lessThan(5000L)
+
+13. Request specification and Response specification
+Request Specification and Response both are rest assured interfaces. Request specification allows specifying how the request will look like. The request Specification Interface has methods to define the base URL, base path, headers, body, etc. The response interface extends the ResponseBody, and ResponseOptions interfaces and is used to return a response to the request.
+
+spec() used to apply predefined set of request and response specification to a given request. 
+
+14. Basic auth in rest assured
+RestAssured.given().auth().basic(username, password)
+   or
+RestAssured.given().auth().preemptive().basic("username", "password")
+given()
+    .header("Authorization", "Bearer yourAccessToken")
+.when()
+    .get("/secured/endpoint");
+
+oauth
+auth().oauth2(accessToken);
+
+15. How to download file using rest assured?
+
+public void test() {
+    byte[] dowloadedFile = RestAssured.given()
+    .when().get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=True")		 
+    .then().extract().asByteArray();
+    System.out.println("Download File Size : "+dowloadedFile.length);
+}
+
+
+16. check certain item in response
+       RestAssured
+            .when().get(endpoint)
+            .then()
+            .statusCode(200)  // Assuming the response code is 200
+            .body("items", Matchers.hasItem("text1"))  
+            }
+
+17. Status line validates the entire status line of the response including HTTP version and status code 
+ Assert.assertEquals(statusLine /*actual value*/, "HTTP/1.1 200 OK" 
+      /*expected value*/, "Correct status code returned");
+
+18. How to disable URL Encoding in Rest assured?
+given().urlEncodingEnabled(false).when().get("http://localhost:3000/api/xyz?Id=101%1ABC");
+
+19. Handle cookies 
+
+Response response = given()
+    .when()
+    .get("/endpoint");
+
+Map<String, String> cookies = response.getCookies();
+
+given()
+    .cookies(cookies)
+.when()
+    .get("/nextEndpoint");
+
+
+20. Filters in RESTAssured
+Filters allows to customize request and response  for ex: use filters to log request and response, modify headers or handle cookies 
+
+given()
+    .filter(new RequestLoggingFilter())
+    .filter(new ResponseLoggingFilter())
+.when()
+    .get("/endpoint");
+
+21. Handle ssl certification in rest assured 
+Using config() method 
+given()
+.config(RestAssured.config().sslConfig(new SSLConfig().allowAllHostnames()))
+.when()
+.get("/secure-endpoint")
+.then()
+.statusCode(200);
+
+21. relaxedHTTPSValidation() method is used to disable strict SSL certification validation.
+
+22. set proxy in Restasssured 
+given()
+.proxy("proxy-host", 8080)
+.when()
+.get("/endpoint")
+.then()
+.statusCode(200);
+
+23. relaxedContentType() -> perform assertions on the response without considering the exact match of the content type. it allows for more flexible content type validation
+
+24. set global time out 
+RestAssured.config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 5000));
+
+
+

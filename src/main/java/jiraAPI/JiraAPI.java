@@ -2,7 +2,6 @@ package jiraAPI;
 
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
-import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import pojo.course.Trainer;
@@ -11,6 +10,7 @@ import java.io.File;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.requestSpecification;
 
 public class JiraAPI {
 

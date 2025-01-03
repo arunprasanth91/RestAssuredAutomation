@@ -1,5 +1,8 @@
 Automation:
   display_name: restAssured_Automation
+  git_clone_credentials_id: pipeline-ready-only
+  use_https_clone: 'on'
+  updateExistingJobs: "on"
   repositories:
     ^RestAssuredAutomation$:
       branches:

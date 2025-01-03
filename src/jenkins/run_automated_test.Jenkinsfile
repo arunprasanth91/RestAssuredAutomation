@@ -1,3 +1,11 @@
+// stage run - we checkout code and run packs
+// stage copy reports - we compress output reports
+// stage download from artifactory - we download prev results
+// stage upload to artifactory - we upload current reports
+// stage compare results - we compare prev vs current results
+// stage send email - we publish the result of comparison.
+
+
 def env
 def runConfig
 def test

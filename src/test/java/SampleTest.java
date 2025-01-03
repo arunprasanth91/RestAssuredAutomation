@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SampleTest {
-    private static final String baseURI = "https://rahulshettyacademy.com/";
+    private static final String baseURI = "https://demo-qa.com/";
     private static final String postResource = "maps/api/place/add/json";
     private static final String getResource = "maps/api/place/get/json";
     private static final String putResource = "maps/api/place/update/json";

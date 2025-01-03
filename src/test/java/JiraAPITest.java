@@ -136,7 +136,7 @@ public class JiraAPITest {
 
     @Test
     public static void testgetAccessToken(){
-        RestAssured.baseURI = "https://rahulshettyacademy.com/";
+        RestAssured.baseURI = "https://demo-qa.com/";
         String resource = "oauthapi/oauth2/resourceOwner/token";
         ResponseBody<Response> postResponse = JiraAPI.getAccessToken(RestAssured.baseURI+resource);
         access_token = postResponse.jsonPath().get("access_token").toString();
@@ -147,7 +147,7 @@ public class JiraAPITest {
 
     @Test (dependsOnMethods = "testgetAccessToken")
     public static void testCourseDetailsResponse(){
-        RestAssured.baseURI = "https://rahulshettyacademy.com/";
+        RestAssured.baseURI = "https://demo-qa.com/";
         String resource = "oauthapi/getCourseDetails";
         Map<String,String> auth = new HashMap<>();
         auth.put("access_token",access_token);

@@ -17,7 +17,7 @@ public class TestDataBuild {
 		p.setAddress(address);
 		p.setLanguage(language);
 		p.setPhone_number("(+91) 983 893 3937");
-		p.setWebsite("https://rahulshettyacademy.com");
+		p.setWebsite("https://demo-qa.com");
 		p.setName(name);
 		List<String> myList =new ArrayList<String>();
 		myList.add("shoe park");

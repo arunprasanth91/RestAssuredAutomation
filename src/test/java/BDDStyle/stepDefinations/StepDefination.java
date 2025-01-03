@@ -1,4 +1,4 @@
-package stepDefinations;
+package BDDStyle.stepDefinations;
 
 import static io.restassured.RestAssured.given;
 

@@ -1,5 +1,5 @@
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Request URI:	https://demo-qa.com/maps/api/place/add/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -15,7 +15,7 @@ Body:
     "name": "AAhouse",
     "phone_number": "(+91) 983 893 3937",
     "address": "World cross center",
-    "website": "https://rahulshettyacademy.com",
+    "website": "https://demo-qa.com",
     "language": "English",
     "location": {
         "lat": -38.383494,
@@ -46,7 +46,7 @@ Content-Type: application/json;charset=UTF-8
     "id": "b703fae84b072f0a0c8f8b406e38af16"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=801773a962469adb25e9cca0c77148b7
+Request URI:	https://demo-qa.com/maps/api/place/get/json?key=qaclick123&place_id=801773a962469adb25e9cca0c77148b7
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -80,11 +80,11 @@ Content-Type: application/json;charset=UTF-8
     "phone_number": "(+91) 983 893 3937",
     "address": "World cross center",
     "types": "shoe park,shop",
-    "website": "https://rahulshettyacademy.com",
+    "website": "https://demo-qa.com",
     "language": "English"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+Request URI:	https://demo-qa.com/maps/api/place/delete/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123

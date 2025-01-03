@@ -13,7 +13,7 @@ public class LibPayload {
         String[] bookTitles = new String[] {"Do Androids Dream of Electric Sheep?","The Long Way to a Small, Angry Planet","Cloud Cuckoo Land","One Hundred Years of Solitude",
                 "Perfume: The Story of a Murderer"};
         String[] authors = new String[] {"author1","author2","author3","author4","author5","author6"};
-        var letters = List.of("a","b","c","d","e","f","g","h","i");
+        List<String> letters = List.of("a","b","c","d","e","f","g","h","i");
         String isbn = letters.get(new Random().nextInt(9)) + letters.get(new Random().nextInt(9)) + letters.get(new Random().nextInt(9)) + letters.get(new Random().nextInt(9));
         int aisle = new Random().nextInt(100000);
         JSONObject postReq = new JSONObject();
